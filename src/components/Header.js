@@ -25,9 +25,7 @@ const Header = ()=>{
           <li className="px-4">
             <Link to="contact">Contact</Link>
           </li>
-          <li className="px-4">
-            <Link to="/grocery">Grocery</Link>
-          </li>
+          
           <li className="px-4">Cart</li>
           <button className="login" onClick={()=>{btn === 'login' ? setBtn('logout') : setBtn('login')}}>{btn}</button>
         </ul>
