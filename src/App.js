@@ -13,6 +13,7 @@ const Header = ()=>{
                     <li className='m-3 hover:bg-orange-300'>About</li>
                     <li className='m-3 hover:bg-orange-300'>Contact Us</li>
                     <li className='m-3 hover:bg-orange-300'>Cart</li>
+                    <li>LogIn</li>
                 </ul>
             </div>
 
