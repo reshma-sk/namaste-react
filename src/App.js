@@ -1,56 +1,31 @@
-import React, { lazy,Suspense } from 'react'
-import ReactDOM from 'react-dom/client'
-import Header from './components/Header';
-import Body from './components/Body';
-//import About from './components/About';
-import Contact from './components/Contact';
-import Error from './components/Error';
-import RestaurantMenu from './components/RestaurantMenu';
-import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom';
-//import Grocery from './components/Grocery';
-const Grocery = lazy(()=>import("./components/Grocery"));
-const About = lazy(()=>import("./components/About"));
-const AppLayOut = ()=>{ 
-  return(
-    <div className='app'>
-      <Header/>
-      <Outlet/>
-    </div>
-  )
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import  './index.css';
+const Header = ()=>{
+    return(
+        <div className = "flex justify-between items-center border border-black">
+            <div className>
+                <img className='p-4' src="" alt="Logo_img" />
+            </div>
+            <div className="p-4">
+                <ul className='flex font-bold'>
+                    <li className='m-3 hover:bg-orange-300'>Home</li>
+                    <li className='m-3 hover:bg-orange-300'>About</li>
+                    <li className='m-3 hover:bg-orange-300'>Contact Us</li>
+                    <li className='m-3 hover:bg-orange-300'>Cart</li>
+                </ul>
+            </div>
+
+        </div>
+    )
 }
-const appRouter = createBrowserRouter([
-  {
-    path:"/",
-    element :<AppLayOut/>,
-    children:[
-      {
-        path:"/",
-        element:<Body/>,
-      },
-      {
-        path:"/about",
-        element:<Suspense fallback={<h1>Loading......</h1>}><About/></Suspense>,
-      },
-      {
-        path:"/contact",
-        element:<Contact/>   
-      },
-      {
-        path:"/grocery",
-        element:<Suspense fallback={<h1>Loading......</h1>}><Grocery/></Suspense>,
-      }, 
-      {
-        path: "restaurants/:resId",
-        element:<RestaurantMenu/>,
-      },
-      
 
-    ],
-    errorElement :<Error/>,  
-  },
-  
-])
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<RouterProvider router = {appRouter}/>)
-
- 
+const AppLayOut = ()=>{
+    return(
+        <div>
+            <Header/>
+        </div>
+    )
+}
+const root= ReactDOM.createRoot(document.getElementById('root'))
+root.render(<AppLayOut/>)
